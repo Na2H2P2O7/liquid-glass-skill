@@ -167,6 +167,7 @@ class GlassBackdrop:
         self._live_active = False
         self._live_thread: threading.Thread | None = None
         self._saved_frame: tuple[int, int, int, int] | None = None
+        self._custom_wallpaper: Path | None = None
 
     # -- wiring ----------------------------------------------------------
 
@@ -201,6 +202,10 @@ class GlassBackdrop:
     def get_glass_backdrop(self) -> dict:
         """Wallpaper + window placement; JS calls this once on pywebviewready."""
         data_url, screen_w, screen_h = _wallpaper_info()
+        if self._custom_wallpaper is not None:
+            custom = _encode_wallpaper(self._custom_wallpaper)
+            if custom:
+                data_url = custom
         win_x = win_y = 0
         window = self._glass_window
         if window is not None:
@@ -216,6 +221,31 @@ class GlassBackdrop:
             "winY": win_y,
             "transparent": IS_MAC,
         }
+
+    def select_backdrop_image(self) -> dict:
+        """Pick a custom image as the refraction source (file dialog).
+
+        The screen dimensions stay those of the display so the cover-fit
+        mapping is unchanged. Cancelling the dialog while a custom image is
+        active resets to the system wallpaper (returned with reset=True so
+        the UI can announce it).
+        """
+        import webview
+
+        window = self._glass_window
+        if window is None:
+            return {"ok": False}
+        result = window.create_file_dialog(
+            webview.FileDialog.OPEN,
+            file_types=("Images (*.jpg;*.jpeg;*.png;*.heic;*.webp;*.tiff)", "All files (*.*)"),
+        )
+        if not result:
+            if self._custom_wallpaper is not None:
+                self._custom_wallpaper = None
+                return {"ok": True, "backdrop": self.get_glass_backdrop(), "reset": True}
+            return {"ok": False}
+        self._custom_wallpaper = Path(result[0])
+        return {"ok": True, "backdrop": self.get_glass_backdrop()}
 
     def set_backdrop_mode(self, mode: str) -> dict:
         """Switch between 'wallpaper' and 'live' (below-window screen capture)."""

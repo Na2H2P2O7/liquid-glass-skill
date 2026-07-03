@@ -142,6 +142,14 @@ on `{ok:false, reason:'permission'}` tell the user to grant Screen Recording
 and relaunch. Switching back: `set_backdrop_mode('wallpaper')` then re-fetch
 `get_glass_backdrop()` into `setBackdrop`.
 
+Custom wallpaper picker (optional UI): call
+`pywebview.api.select_backdrop_image()` — opens a native image dialog and
+returns `{ok, backdrop, reset?}`. Feed `result.backdrop` into
+`LiquidGlass.setBackdrop`. The system wallpaper stays the default;
+cancelling the dialog while a custom image is active resets to it
+(`reset: true`). If live mode is on, switch back to wallpaper mode first —
+picking a wallpaper implies wallpaper mode.
+
 Maximize button: call `pywebview.api.toggle_zoom_maximize()` — NOT
 `toggle_fullscreen()` (see pitfalls.md).
 
