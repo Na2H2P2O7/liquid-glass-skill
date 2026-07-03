@@ -15,7 +15,21 @@
 
 **EN** - An installable agent skill (for Claude Code, Codex, and any coding agent that reads `SKILL.md`) that packages a battle-tested liquid glass UI recipe as docs + drop-in scripts. Install it, tell your AI coding assistant "make this app liquid glass", and it wires up the proven pipeline instead of reinventing (and re-tripping over) everything.
 
-参考实现与演示视频 / Reference implementation & demo video: **[Mediatag](https://github.com/Na2H2P2O7/Mediatag)**
+参考实现 / Reference implementation: **[Mediatag](https://github.com/Na2H2P2O7/Mediatag)**
+
+---
+
+## 演示 / Demo
+
+https://github.com/user-attachments/assets/80251fee-ad9c-40cb-9aee-774ffaf111c7
+
+> 🎬 拖动窗口时折射实时跟随、按压玻璃形变、实时屏幕背景、自适应文字（48s，[本地文件](show/demo-v2.mp4)）。/ Refraction tracking window drags, pressed-glass deformation, live screen backdrop, adaptive text ink.
+
+| Light Mode | Dark Mode |
+|:---:|:---:|
+| <img src="show/light.png" alt="liquid glass light mode" width="420"> | <img src="show/dark.png" alt="liquid glass dark mode" width="420"> |
+
+> 截图里窗口后面的森林就是真实的桌面壁纸——窗口是透明的，玻璃在真实地折射它。/ The forest behind the window is the actual desktop wallpaper — the window is transparent and the glass genuinely refracts it.
 
 ---
 
