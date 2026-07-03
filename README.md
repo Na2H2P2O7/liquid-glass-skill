@@ -35,11 +35,21 @@ https://github.com/user-attachments/assets/80251fee-ad9c-40cb-9aee-774ffaf111c7
 
 ## 效果 / What You Get
 
-- 🪟 **真透明窗口 + 真折射** - 整个窗口是一块 WebGL 渲染的圆角霜面玻璃，UI 面板是其上更清透的"透镜"层，边缘真实弯曲窗口背后的桌面壁纸——不是 `backdrop-filter` 模拟。/ The window is one WebGL-rendered sheet of frosted glass whose panels genuinely *bend* the desktop wallpaper behind it — not a `backdrop-filter` imitation.
-- 📺 **实时屏幕背景** - 可切换到 ~7fps below-window 屏幕捕捉，折射窗口背后的一切（其它应用、视频、滚动网页）。/ Optional live capture mode refracts everything behind the window.
-- 👆 **按压玻璃形变** - 光标如指尖按压玻璃，指针下方折射局部加深，按下更深、松开回弹——是折射管线本身的调制。/ The pointer presses the pane like a fingertip, locally deepening the refraction.
-- 🔤 **自适应文字墨水** - 每个文字元素按其背后实际渲染亮度独立切换深/浅色，带滞回防抖。/ Per-element adaptive text ink driven by the actual rendered glass luminance.
-- ⚡️ **空闲 0% CPU** - 渲染循环无事时完全停车。/ The render loop fully parks when idle.
+**中文**
+
+- 🪟 **真透明窗口 + 真折射** - 整个窗口是一块 WebGL 渲染的圆角霜面玻璃，UI 面板是其上更清透的"透镜"层，边缘真实弯曲窗口背后的桌面壁纸——不是 `backdrop-filter` 模拟。
+- 📺 **实时屏幕背景** - 可切换到 ~7fps below-window 屏幕捕捉，折射窗口背后的一切（其它应用、视频、滚动网页）。
+- 👆 **按压玻璃形变** - 光标如指尖按压玻璃，指针下方折射局部加深，按下更深、松开回弹——是折射管线本身的调制。
+- 🔤 **自适应文字墨水** - 每个文字元素按其背后实际渲染亮度独立切换深/浅色，带滞回防抖。
+- ⚡️ **空闲 0% CPU** - 渲染循环无事时完全停车。
+
+**EN**
+
+- 🪟 **True transparency + true refraction** - The whole window is one WebGL-rendered sheet of frosted glass; UI panels are clearer lens layers whose edges genuinely *bend* the desktop wallpaper behind the window — not a `backdrop-filter` imitation.
+- 📺 **Live screen backdrop** - Optional ~7fps below-window capture: the glass refracts everything behind the window (other apps, video, scrolling pages).
+- 👆 **Pressed-glass deformation** - The pointer presses the pane like a fingertip, locally deepening the refraction; deeper on mouse-down, relaxing on release — a modulation of the refraction pipeline itself.
+- 🔤 **Adaptive text ink** - Every label independently flips between dark and light based on the actual rendered glass luminance behind it, with hysteresis.
+- ⚡️ **0% idle CPU** - The render loop fully parks when nothing changes.
 
 ---
 
